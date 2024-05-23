@@ -1,5 +1,4 @@
-import java.io.FileWriter;
-import java.io.PrintWriter;
+import java.io.*;
 import java.util.ArrayList;
 
 /**
@@ -32,7 +31,58 @@ public static void addproduct (int productId, String productName, String categor
      {
          for (product p : products)
          {
-             writer.println()
+             writer.println(p.getProductId() + " " + p.getProductName() + " " + p.getCategory() + " " + p.getPrice());
+         }
+     } catch (IOException e)
+     {
+         e.printStackTrace();
+     }
+ }
+ public static void loadProductsFromTextFile(String fileName)
+ {
+     try (BufferedReader reader = new BufferedReader(new FileReader(fileName)))
+     {
+         String line;
+         while ((line = reader.readLine())!= null)
+         {
+             String[] parts = line.split(" ");
+             int productId = Integer.parseInt(parts[0]);
+             String productName = parts[1];
+             String category = parts[2];
+             double price = Double.parseDouble(parts[3]);
+             addproduct(productId, productName, category, price);
+         }
+     }
+     catch (IOException e)
+     {
+         e.printStackTrace();
+     }
+ }
+ public static void searchProuctsbycategory(String category)
+ {
+     for (product p : products)
+     {
+         if (p.getCategory().equals(category))
+         {
+             System.out.println(p.getProductId() + " " + p.getProductName() + " " + p.getCategory() + " " + p.getPrice());
+         }
+     }
+ }
+ public static void displayAllProducts()
+ {
+     for (product p : products)
+     {
+         System.out.println(p.getProductId() + " " + p.getProductName() + " " + p.getCategory() + " " + p.getPrice());
+     }
+ }
+ public static void rangePrice (int minPrice, int maxMark)
+ {
+     ArrayList<product> price = new ArrayList<product>();
+     for (product p : products)
+     {
+         if (p.getPrice() >= minPrice && p.getPrice() <= maxMark)
+         {
+             System.out.println(p.getProductId() + " " + p.getProductName() + " " + p.getCategory() + " " + p.getPrice());
          }
      }
  }
