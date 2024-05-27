@@ -3,7 +3,7 @@ import java.util.ArrayList;
 
 /**
  * @author : shelley
- * @Description :
+ * @Description : Class pour mettre tous les méthodes
  * @created : 2024-05-09, Thursday
  **/
 public class productmanager
@@ -75,15 +75,5 @@ public static void addproduct (int productId, String productName, String categor
          System.out.println(p.getProductId() + " " + p.getProductName() + " " + p.getCategory() + " " + p.getPrice());
      }
  }
- public static void rangePrice (int minPrice, int maxMark)
- {
-     ArrayList<product> price = new ArrayList<product>();
-     for (product p : products)
-     {
-         if (p.getPrice() >= minPrice && p.getPrice() <= maxMark)
-         {
-             System.out.println(p.getProductId() + " " + p.getProductName() + " " + p.getCategory() + " " + p.getPrice());
-         }
-     }
- }
+
 }

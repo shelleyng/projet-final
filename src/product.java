@@ -1,6 +1,6 @@
 /**
  * @author : shelley
- * @Description :
+ * @Description : Class qui permet pour déclarer le modèle des produits
  * @created : 2024-05-09, Thursday
  **/
 public class product
